@@ -30,11 +30,35 @@ To run the workflow from command line, change the working directory.
 cd path/to/snakemake-workflow-name
 ```
 
+Make sure that the `cellranger` software is installed and available in your `PATH`.
+
+For instance, on an HPC system with `module` support, you can load the module before running the workflow:
+
+```bash
+module load cellranger/9.0.0
+```
+
+Similarly, make sure that `snakemake` is installed and available in your `PATH`.
+
+For instance, if you have `snakemake` installed in a Conda environment, you can load the environment before running the workflow:
+
+```bash
+conda activate snakemake
+```
+
 Adjust options in the default config file `config/config.yaml`.
 Before running the complete workflow, you can perform a dry run using:
 
 ```bash
 snakemake --dry-run
+```
+
+To run the workflow, use:
+
+```bash
+snakemake
+# or
+nohup snakemake &
 ```
 
 To run the workflow with test files using **conda**:

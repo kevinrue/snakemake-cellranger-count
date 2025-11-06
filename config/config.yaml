@@ -1,8 +1,9 @@
-samplesheet: ".test/config/samples.tsv"
+samplesheet: config/samples.tsv
 
-get_genome:
-  ncbi_ftp: https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/146/045/GCF_000146045.2_R64/GCF_000146045.2_R64_genomic.fna.gz
+transcriptome: resources/refdata-gex-GRCh38-2020-A/
 
-simulate_reads:
-  read_length: 100
-  read_number: 10000
+localcores: 6
+
+localmem: 25
+
+runtime: "12h"

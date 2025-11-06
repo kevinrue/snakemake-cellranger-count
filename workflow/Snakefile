@@ -12,7 +12,7 @@ configfile: "config/config.yaml"
 # load rules
 # -----------------------------------------------------
 include: "rules/common.smk"
-include: "rules/process_reads.smk"
+include: "rules/cellranger.smk"
 
 
 # optional messages, log and error handling
@@ -33,5 +33,5 @@ onerror:
 # -----------------------------------------------------
 rule all:
     input:
-        "results/multiqc/multiqc_report.html",
+        expand("results/cellranger_count/{sample}/outs/possorted_genome_bam.bam", sample=samples.index.tolist()),
     default_target: True

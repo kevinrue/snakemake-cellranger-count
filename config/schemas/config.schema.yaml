@@ -5,25 +5,25 @@ properties:
     type: string
     description: path to sample-sheet TSV file
 
-  get_genome:
-    type: object
-    properties:
-      ncbi_ftp:
-        type: string
-        description: URL for genome retrieval
-    required: ["ncbi_ftp"]
+  transcriptome:
+    type: string
+    description: path to reference transcriptome directory
 
-  simulate_reads:
-    type: object
-    properties:
-      read_length:
-        type: number
-        description: length of target reads in bp
-      read_number:
-        type: number
-        description: number of total reads to be simulated
+  localcores:
+    type: number
+    description: number of cores to use
+
+  localmem:
+    type: number
+    description: amount of memory (in GB) to use
+
+  runtime:
+    type: string
+    description: maximum runtime for each job (including units, e.g. "12h", "30m")
 
 required:
   - samplesheet
-  - get_genome
-  - simulate_reads
+  - transcriptome
+  - localcores
+  - localmem
+  - runtime
