@@ -14,13 +14,14 @@ rule cellranger_count:
         mem=str(config["localmem"]) + "G",
         runtime=config["runtime"],
     envmodules:
-        "cellranger/7.2.0",
+        "cellranger/9.0.0",
     shell:
         "cellranger count "
         "--id={wildcards.sample} "
         "--transcriptome={params.transcriptome} "
         "--fastqs={input.fastqs} "
         "--sample={wildcards.sample} "
+        "--create-bam true "
         "--localcores={params.localcores} "
         "--localmem={params.localmem} && "
         "rm -rf results/cellranger_count/{wildcards.sample} && "
